@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseDetailsComponent implements OnInit {
 
+  id = 1;
+  title = 'NodeJs';
+  instructor = 'Ali';
+  isAvailable = true;
+
   constructor() { }
 
   ngOnInit(): void {
