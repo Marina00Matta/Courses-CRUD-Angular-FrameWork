@@ -1,9 +1,11 @@
-
+<p>
+  <!-- {{_courseService.title}} -->
+</p>
 <li class = "list-group-item"
-[ngClass]="{'list-group-item-success' : isAvailable,
-  'list-group-item-danger': !isAvailable  }"
-  
+[ngClass]="{'list-group-item-success' : course.isAvailable,
+  'list-group-item-danger': !course.isAvailable  }"
+  (click) = "onClick()"
   >
-{{title}}
+{{course.title}}
 
 </li>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { EventEmitter } from 'protractor';
+import { EventEmitter } from '@angular/core';
+import { CourseService } from 'src/app/course/services/course.service';
 
 @Component({
   selector: 'app-course-item',
@@ -7,18 +8,21 @@ import { EventEmitter } from 'protractor';
   styleUrls: ['./course-item.component.scss']
 })
 export class CourseItemComponent implements OnInit {
-  @Input() title : string;
-  @Input() instructor : string;
-  @Input() isAvailable : boolean;
-  // @Output() CourseClick = new EventEmitter ();
-  // title = 'NodeJs';
-  // instructor = 'Ali';
-  // isAvailable = Math.random() > 0.5;
+  // @Input() title : string;
+  // @Input() instructor : string;
+  // @Input() isAvailable : boolean;
+  @Input('courseData')course;
+  @Output() CourseClick = new EventEmitter<string> ();
   
-  constructor() { }
+  
+  constructor(private _courseService : CourseService) { 
+    console.log(_courseService);
+   }
 
   ngOnInit(): void {
   }
 
-
+  onClick(){
+    this.CourseClick.emit(this.course.title);
+  }
 }

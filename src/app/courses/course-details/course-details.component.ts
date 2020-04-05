@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseService } from 'src/app/course/services/course.service';
 
 @Component({
   selector: 'app-course-details',
@@ -7,14 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseDetailsComponent implements OnInit {
 
-  id = 1;
-  title = 'NodeJs';
-  instructor = 'Ali';
-  isAvailable = true;
-
-  constructor() { }
+  course;
+  constructor(private _courseService: CourseService) {
+    console.log('constructor');
+    
+   }
 
   ngOnInit(): void {
+    console.log('ngOnInit');
+    
+    this._courseService.courseSubjectObservable.subscribe((data) =>{
+      
+      console.log(data);
+      
+      this.course = data;
+      });
+
   }
 
 }

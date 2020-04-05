@@ -6,14 +6,18 @@
         </h3>
         <hr>
     </div>
-
+<p>
+    <!-- {{_courseService.title}} -->
+</p>
     <div class="col-12">
-        <p>
+        <p *ngIf="clickedCourseTitle">
+            Course {{clickedCourseTitle}} is clicked
         </p>
         <ul class="list-group">
-            <app-course-item *ngFor = "let course of courses" [title] = "course.title" 
-            [instructor] = "course.instructor" [isAvailable] = "course.isAvailable"
-           
+            <app-course-item *ngFor = "let course of courses" 
+            [courseData] = "course"
+           (CourseClick) = "onCourseClick($event)"
+           (click) = "onCourseItemClick(course)"
             ></app-course-item>
            
 

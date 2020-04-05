@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseService } from 'src/app/course/services/course.service';
 
 @Component({
   selector: 'app-course-list',
@@ -33,14 +34,25 @@ export class CourseListComponent implements OnInit {
       isAvailable : false
     },
   ]
-  clickCourseTitle;
-  constructor() { }
+  clickedCourseTitle;
+  constructor(private _courseService : CourseService) { 
+    console.log(_courseService);
+  }
 
   ngOnInit(): void {
   }
 
-  // onCourseClick(data){
-  //   console.log(data);
-  //   this.clickCourseTitle = data;
-  // }
+  onCourseClick(data){
+    console.log(data);
+    this.clickedCourseTitle = data;
+  }
+
+  onCourseItemClick(course)
+  {
+    this._courseService.changeCourseData(course);
+  }
+
+
+
 }
+
