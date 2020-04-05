@@ -13,12 +13,13 @@
         <p *ngIf="clickedCourseTitle">
             Course {{clickedCourseTitle}} is clicked
         </p>
+
         <ul class="list-group">
-            <app-course-item *ngFor = "let course of courses" 
-            [courseData] = "course"
+            <app-course-item *ngFor = "let course of courses" [courseData] = "course"
            (CourseClick) = "onCourseClick($event)"
-           (click) = "onCourseItemClick(course)"
-            ></app-course-item>
+           (click) = "onCourseItemClick(course)">
+        </app-course-item>
+           
            
 
         </ul>

@@ -8,7 +8,6 @@ import { BehaviorSubject } from 'rxjs';
 )
 export class CourseService {
   private _courseSubject = new BehaviorSubject(null);
-  // private courseSubject = new BehaviorSubject(null);
 
   constructor() { }
 
@@ -19,7 +18,8 @@ export class CourseService {
   }
 
   get courseSubjectObservable(){
-    return this.courseSubjectObservable();
+
+    return this._courseSubject.asObservable();
   }
 
 

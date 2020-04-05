@@ -17,7 +17,7 @@ export class CourseDetailsComponent implements OnInit {
   ngOnInit(): void {
     console.log('ngOnInit');
     
-    this._courseService.courseSubjectObservable.subscribe((data) =>{
+    this._courseService.courseSubjectObservable.subscribe( data =>{
       
       console.log(data);
       

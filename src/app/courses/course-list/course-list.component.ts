@@ -42,9 +42,9 @@ export class CourseListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCourseClick(data){
-    console.log(data);
-    this.clickedCourseTitle = data;
+  onCourseClick(ev){
+    console.log(ev);
+    this.clickedCourseTitle = ev;
   }
 
   onCourseItemClick(course)
