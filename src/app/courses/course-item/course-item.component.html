@@ -5,6 +5,7 @@
 [ngClass]="{'list-group-item-success' : course.isAvailable,
   'list-group-item-danger': !course.isAvailable  }"
   (click) = "onClick()"
+  [routerLink] = "['/courses', course.id]"
   >
 {{course.title}}
 

@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { CoursesModule } from './courses/courses.module';
 import { HomeComponent } from './home/home.component';
 import { CourseService } from './course/services/course.service';
+import { HeaderComponent } from './header/header.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

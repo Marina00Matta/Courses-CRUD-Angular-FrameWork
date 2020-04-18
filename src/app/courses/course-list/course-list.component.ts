@@ -8,38 +8,17 @@ import { CourseService } from 'src/app/course/services/course.service';
 })
 export class CourseListComponent implements OnInit {
 
-  courses = [
-    {
-      id : 1,
-      title : 'NodeJs',
-      instructor : 'Ali',
-      isAvailable : true
-    },
-    {
-      id : 2,
-      title : 'JavaScript',
-      instructor : 'Ahmed',
-      isAvailable : true
-    },
-    {
-      id : 3,
-      title : 'HTML',
-      instructor : 'Hager',
-      isAvailable : false
-    },
-    {
-      id : 4,
-      title : 'Angular',
-      instructor : 'Nada',
-      isAvailable : false
-    },
-  ]
+  courses;
   clickedCourseTitle;
   constructor(private _courseService : CourseService) { 
     console.log(_courseService);
   }
 
   ngOnInit(): void {
+this.courses = this._courseService.getCourses().subscribe((res)=>{
+  console.log(res);
+  
+});
   }
 
   onCourseClick(ev){
